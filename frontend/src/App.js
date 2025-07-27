@@ -10,6 +10,12 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode((prev) => !prev);
+  };
+
   const fetchPages = async () => {
     const res = await axios.get("http://localhost:5000/api/pages");
     setPages(res.data);
@@ -17,7 +23,7 @@ function App() {
 
   const createPage = async () => {
     const res = await axios.post("http://localhost:5000/api/pages", {
-      title: "",
+      title: "Untitled",
       content: "",
       tags: [],
       tasks: [],
@@ -41,6 +47,9 @@ function App() {
   };
 
   const deletePage = async () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this page?");
+    if (!confirmDelete) return;
+
     await axios.delete(`http://localhost:5000/api/pages/${currentPage._id}`);
     setCurrentPage(null);
     setTags([]);
@@ -53,7 +62,13 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
+    <div className={`app ${darkMode ? "dark" : "light"}`}>
+      {/* Toggle Theme Button */}
+      <div className="theme-toggle" onClick={toggleTheme}>
+        {darkMode ? "🌙" : "☀️"}
+      </div>
+
+      {/* Sidebar */}
       <div className="sidebar">
         <div className="logo">.NEON</div>
         <h2>Pages</h2>
@@ -73,7 +88,7 @@ function App() {
         </ul>
         <button onClick={createPage}>+ New Page</button>
 
-        {/* Tag input */}
+        {/* Tag Input */}
         <div style={{ marginTop: "10px" }}>
           <input
             type="text"
@@ -97,14 +112,7 @@ function App() {
             {tags.map((tag, idx) => (
               <span
                 key={idx}
-                style={{
-                  marginRight: "6px",
-                  padding: "2px 6px",
-                  background: "#ddd",
-                  borderRadius: "4px",
-                  display: "inline-block",
-                  marginTop: "4px",
-                }}
+                className="tag"
               >
                 {tag}
               </span>
@@ -113,7 +121,7 @@ function App() {
         </div>
       </div>
 
-      {/* Page Editor */}
+      {/* Editor */}
       <div className="editor">
         {currentPage ? (
           <>
@@ -180,15 +188,7 @@ function App() {
               + Add Task
             </button>
 
-            <button
-              className="delete-btn"
-              onClick={() => {
-                const confirmDelete = window.confirm("Are you sure you want to delete this page?");
-                if (confirmDelete) {
-                  deletePage();
-                }
-              }}
-            >
+            <button className="delete-btn" onClick={deletePage}>
               Delete Page
             </button>
           </>
