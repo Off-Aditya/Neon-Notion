@@ -2,7 +2,7 @@
 
 > A clean, minimalist Notion-style app built with the MERN stack — for notes, tasks, and organization. Built by Aditya Singh.
 
-![screenshot](frontend/src/Neon)
+![screenshot](frontend/src/Neon-Notion-UI.png)
 
 ---
 
