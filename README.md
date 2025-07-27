@@ -6,27 +6,26 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- 📝 Create, edit, and delete pages
-- 🏷️ Add and manage tags per page
-- ✅ Built-in task checklist
-- 🕓 "Last Edited" timestamp display
-- 🌈 Aesthetic, custom-designed UI
-- ⚡ Powered by React, Express, MongoDB
+- Create, edit, and delete pages
+- Add and manage tags per page
+- Built-in task checklist
+- "Last Edited" timestamp display
+- Powered by React, Express, MongoDB
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend**: React, Axios
 - **Backend**: Node.js, Express
 - **Database**: MongoDB (Mongoose)
-- **Styling**: Custom CSS (clean, modern)
+- **Styling**: Vanilla CSS
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repo
 
