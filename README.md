@@ -29,5 +29,5 @@
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/neon-notion.git
+git clone https://github.com/Off-Aditya/Neon-Notion.git
 cd neon-notion
