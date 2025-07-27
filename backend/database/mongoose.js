@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(" /notion"); // or MongoDB URI
+URI = " /notion"  // or MongoDB URI
+
+mongoose.connect(URI); 
 
 
 const connectDB = async () => {
