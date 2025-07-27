@@ -5,10 +5,8 @@ import "./App.css";
 function App() {
   const [pages, setPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(null);
-
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
-
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
@@ -19,7 +17,7 @@ function App() {
 
   const createPage = async () => {
     const res = await axios.post("http://localhost:5000/api/pages", {
-      title: "Untitled",
+      title: "",
       content: "",
       tags: [],
       tasks: [],
@@ -75,6 +73,7 @@ function App() {
         </ul>
         <button onClick={createPage}>+ New Page</button>
 
+        {/* Tag input */}
         <div style={{ marginTop: "10px" }}>
           <input
             type="text"
@@ -114,13 +113,16 @@ function App() {
         </div>
       </div>
 
+      {/* Page Editor */}
       <div className="editor">
         {currentPage ? (
           <>
             <input
+              type="text"
               value={currentPage.title}
               onChange={(e) => updatePage("title", e.target.value)}
-              placeholder="Page Title"
+              placeholder="Untitled"
+              className="page-title"
             />
 
             {currentPage?.updatedAt && (
@@ -179,8 +181,13 @@ function App() {
             </button>
 
             <button
-              onClick={deletePage}
-              style={{ marginTop: "10px", marginLeft:"7px",color: "" }}
+              className="delete-btn"
+              onClick={() => {
+                const confirmDelete = window.confirm("Are you sure you want to delete this page?");
+                if (confirmDelete) {
+                  deletePage();
+                }
+              }}
             >
               Delete Page
             </button>

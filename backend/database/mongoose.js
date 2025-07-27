@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-URI = " /notion"  // or MongoDB URI
+URI = "mongodb+srv://aditya_singh:Aditya$%40343@addi.0jj4bvg.mongodb.net/notion"  // or MongoDB URI
 
 mongoose.connect(URI); 
 
