@@ -2,9 +2,9 @@
 
 > A clean, minimalist Notion-style app built with the MERN stack — for notes, tasks, and organization. Built by Aditya Singh.
 
-![screenshot]()
+![screenshot](UI-Design/Light_Mode.png)
 
-![screenshot]()
+![screenshot](UI-Design/Dark_Mode.png)
 
 ---
 
