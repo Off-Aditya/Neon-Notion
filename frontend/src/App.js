@@ -10,12 +10,14 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
-  const [darkMode, setDarkMode] = useState(false);
+  const themes = ["light", "dark", "sakura", "retro", "solarized", "tokyo"];
+  const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
-    setDarkMode((prev) => !prev);
+    const currentIndex = themes.indexOf(theme);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    setTheme(themes[nextIndex]);
   };
-
   const fetchPages = async () => {
     const res = await axios.get("http://localhost:5000/api/pages");
     setPages(res.data);
@@ -62,11 +64,21 @@ function App() {
   }, []);
 
   return (
-    <div className={`app ${darkMode ? "dark" : "light"}`}>
-      {/* Toggle Theme Button */}
-      <div className="theme-toggle" onClick={toggleTheme}>
-        {darkMode ? "🌙" : "☀️"}
+    <div className={`app ${theme}`}>
+      {/* Theme Toggle Button */}
+      <div className="theme-toggle" onClick={toggleTheme} title={`Theme: ${theme}`}>
+        {
+          {
+            light: "☀️",
+            dark: "🌙",
+            sakura: "🌸",
+            retro: "💾",
+            solarized: "🟨",
+            tokyo: "🌆",
+          }[theme]
+        }
       </div>
+
 
       {/* Sidebar */}
       <div className="sidebar">

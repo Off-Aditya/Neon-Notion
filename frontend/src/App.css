@@ -302,3 +302,264 @@ button:hover {
 .dark .theme-toggle:hover {
   background-color: #30363d;
 }
+
+/* Sakura Byte Theme */
+.sakura {
+  background-color: #fffafa;
+  color: #2c2c2c;
+  transition: all 0.3s ease;
+}
+
+.sakura .sidebar {
+  background-color: #faf4f4;
+  border-right: 1px solid #e0dede;
+}
+
+.sakura .logo {
+  color: #d6336c;
+  /* cherry blossom pink */
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.sakura .editor {
+  background-color: #fffafa;
+}
+
+.sakura input,
+.sakura textarea {
+  background-color: #fdfdfd;
+  border: 1px solid #dcdcdc;
+  color: #2c2c2c;
+}
+
+.sakura button {
+  background-color: #f28ab2;
+  color: white;
+  border: none;
+}
+
+.sakura button:hover {
+  background-color: #e396ac;
+}
+
+.sakura .tag {
+  background-color: #fce4ec;
+  color: #2c2c2c;
+}
+
+/* Retro Terminal Theme */
+.app.retro {
+  background-color: #000000;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+}
+
+.retro .sidebar {
+  background-color: #000000;
+  color: #00ff00;
+  border-right: 1px solid #00ff00;
+}
+
+.retro .sidebar h2 {
+  color: #00ff00;
+}
+
+.retro .page-title {
+  color: #00ff00;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+}
+
+.retro .sidebar li {
+  color: #00ff00;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.retro .page-title {
+  color: #00ff00 !important;
+}
+
+
+.retro .sidebar li:hover {
+  background-color: #002200;
+}
+
+.retro .logo {
+  color: #00ff00;
+}
+
+.retro .editor {
+  background-color: #000000;
+}
+
+.retro input,
+.retro textarea {
+  background-color: #001a00;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.retro .page-title {
+  color: #00ff00;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.retro button {
+  background-color: #003300;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.retro button:hover {
+  background-color: #005500;
+}
+
+.retro .tag {
+  background-color: #003300;
+  color: #00ff00;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 2px;
+}
+
+/* Solarized Light Theme */
+.app.solarized {
+  background-color: #fdf6e3;
+  color: #586e75;
+}
+
+.solarized .sidebar {
+  background-color: #eee8d5;
+  color: #586e75;
+  border-right: 1px solid #d6d6d6;
+}
+
+.solarized .logo {
+  color: #b58900;
+  /* solar yellow accent */
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+
+.solarized .editor {
+  background-color: #fdf6e3;
+}
+
+.solarized input,
+.solarized textarea {
+  background-color: #fefce8;
+  color: #586e75;
+  border: 1px solid #ccc;
+}
+
+.solarized button {
+  background-color: #b58900;
+  color: #fff;
+  border: none;
+}
+
+.solarized button:hover {
+  background-color: #997700;
+}
+
+.solarized .tag {
+  background-color: #ffe0a3;
+  color: #073642;
+}
+
+/* Tokyo Theme */
+.app.tokyo {
+  background-color: #1a1b26;
+  color: #c0caf5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.tokyo .sidebar {
+  background-color: #16161e;
+  color: #c0caf5;
+  border-right: 1px solid #3d3f5d;
+}
+
+.tokyo .sidebar li {
+  color: #c0caf5;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.tokyo .sidebar li:hover {
+  background-color: #2c2e3e;
+}
+
+.tokyo .logo {
+  color: #bb9af7;
+}
+
+.tokyo .sidebar h2 {
+  color: #c0caf5;
+}
+
+.tokyo .page-title {
+  color: #c0caf5;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+}
+
+.tokyo .page-title {
+  color: #c0caf5 !important;
+}
+
+
+.tokyo .editor {
+  background-color: #1a1b26;
+}
+
+.tokyo input,
+.tokyo textarea {
+  background-color: #24283b;
+  color: #c0caf5;
+  border: 1px solid #3d3f5d;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.tokyo .page-title {
+  color: #c0caf5;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tokyo button {
+  background-color: #7aa2f7;
+  color: #1a1b26;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.tokyo button:hover {
+  background-color: #bb9af7;
+  color: #1a1b26;
+}
+
+.tokyo .tag {
+  background-color: #7dcfff;
+  color: #1a1b26;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 2px;
+}
