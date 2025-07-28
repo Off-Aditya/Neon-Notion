@@ -220,9 +220,31 @@ button:hover {
   transition: all 0.3s ease;
 }
 
+.task-progress-bar {
+  height: 8px;
+  background: var(--progress-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.task-progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  background: var(--progress-fill);
+}
+
+.light {
+  --progress-bg: #ddd;
+  --progress-fill: #4caf50;
+}
+
+/* Github Dark Theme */
 .dark {
   background-color: #0d1117;
   color: #c9d1d9;
+  --progress-bg: #444;
+  --progress-fill: #81c784;
 }
 
 .dark .sidebar {
@@ -308,6 +330,8 @@ button:hover {
   background-color: #fffafa;
   color: #2c2c2c;
   transition: all 0.3s ease;
+  --progress-bg: #f9d5e5;
+  --progress-fill: #e91e63;
 }
 
 .sakura .sidebar {
@@ -354,6 +378,8 @@ button:hover {
   background-color: #000000;
   color: #00ff00;
   font-family: 'Courier New', monospace;
+  --progress-bg: #222;
+  --progress-fill: #0f0;
 }
 
 .retro .sidebar {
@@ -437,6 +463,8 @@ button:hover {
 .app.solarized {
   background-color: #fdf6e3;
   color: #586e75;
+  --progress-bg: #eee8d5;
+  --progress-fill: #ceb62b;
 }
 
 .solarized .sidebar {
@@ -484,6 +512,8 @@ button:hover {
   background-color: #1a1b26;
   color: #c0caf5;
   font-family: 'Segoe UI', sans-serif;
+  --progress-bg: #2b2d3a;
+  --progress-fill: #b861ff;
 }
 
 .tokyo .sidebar {
@@ -562,4 +592,21 @@ button:hover {
   border-radius: 4px;
   display: inline-block;
   margin: 2px;
+}
+
+.task-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.delete-task {
+  margin-left: 8px;
+  opacity: 0;
+  font-size: 12x;
+  cursor: pointer;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.task-item:hover .delete-task {
+  opacity: 1;
 }

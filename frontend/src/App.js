@@ -144,7 +144,7 @@ function App() {
               placeholder="Untitled"
               className="page-title"
             />
-
+            
             {currentPage?.updatedAt && (
               <p style={{ fontSize: "14px", color: "gray" }}>
                 Last edited: {new Date(currentPage.updatedAt).toLocaleString()}
@@ -158,9 +158,47 @@ function App() {
             />
 
             <h4>Tasks</h4>
+            {/* ✅ Task Progress Bar */}
+            {tasks.length > 0 && (() => {
+              const completed = tasks.filter(t => t.done).length;
+              const total = tasks.length;
+              const percent = Math.round((completed / total) * 100);
+
+              return (
+                <div style={{ marginBottom: "10px" }}>
+                  <div style={{ fontSize: "14px", marginBottom: "4px" }}>
+                    ✅ {completed} of {total} tasks completed &nbsp;
+                    <span style={{ color: "var(--progress-fill)", fontWeight: "bold" }}>
+                      ({percent}%)
+                    </span>
+                  </div>
+
+                  <div
+                    className="task-progress-bar"
+                    title={`${completed} of ${total} tasks completed`}
+                  >
+                    <div
+                      className="task-progress-fill"
+                      style={{ width: `${percent}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })()}
+
+
             <ul>
               {tasks.map((task, index) => (
-                <li key={index}>
+                <li
+                  key={index}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    marginBottom: "6px",
+                  }}
+                  className="task-item"
+                >
                   <input
                     type="checkbox"
                     checked={task.done}
@@ -171,16 +209,33 @@ function App() {
                       updatePage("tasks", updatedTasks);
                     }}
                   />
-                  <span
-                    style={{
-                      textDecoration: task.done ? "line-through" : "none",
-                    }}
-                  >
-                    {task.text}
-                  </span>
+
+                  <div className="task-text-container">
+                    <span
+                      className="task-text"
+                      style={{
+                        textDecoration: task.done ? "line-through" : "none",
+                        color: task.done ? "gray" : "inherit",
+                      }}
+                    >
+                      {task.text}
+                    </span>
+                    <span
+                      className="delete-task"
+                      onClick={() => {
+                        const updatedTasks = tasks.filter((_, i) => i !== index);
+                        setTasks(updatedTasks);
+                        updatePage("tasks", updatedTasks);
+                      }}
+                      title="Delete Task"
+                    >
+                      ❌
+                    </span>
+                  </div>
                 </li>
               ))}
             </ul>
+
 
             <input
               type="text"
