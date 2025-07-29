@@ -10,14 +10,9 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
-  const themes = ["light", "dark", "sakura", "retro", "solarized", "tokyo"];
+
   const [theme, setTheme] = useState("light");
 
-  const toggleTheme = () => {
-    const currentIndex = themes.indexOf(theme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    setTheme(themes[nextIndex]);
-  };
   const fetchPages = async () => {
     const res = await axios.get("http://localhost:5000/api/pages");
     setPages(res.data);
@@ -65,20 +60,40 @@ function App() {
 
   return (
     <div className={`app ${theme}`}>
-      {/* Theme Toggle Button */}
-      <div className="theme-toggle" onClick={toggleTheme} title={`Theme: ${theme}`}>
-        {
-          {
-            light: "☀️",
-            dark: "🌙",
-            sakura: "🌸",
-            retro: "💾",
-            solarized: "🟨",
-            tokyo: "🌆",
-          }[theme]
-        }
+      <div className="theme-toggle-hover-container">
+        <div className="theme-toggle-hover-area">
+          <div className="theme-toggle-current">
+            {{
+              light: "☀️",
+              dark: "🌙",
+              sakura: "🌸",
+              retro: "🕹️",
+              solarized: "🟡",
+              tokyo: "🗼",
+              cosmic: "🌌",
+              synthwave: "🎧",
+            }[theme]}
+          </div>
+          <div className="theme-options-hover">
+            {[
+              { name: "light", icon: "☀️" },
+              { name: "dark", icon: "🌙" },
+              { name: "sakura", icon: "🌸" },
+              { name: "retro", icon: "🕹️" },
+              { name: "solarized", icon: "🟡" },
+              { name: "tokyo", icon: "🗼" },
+            ].map(({ name, icon }) => (
+              <button
+                key={name}
+                className={`theme-btn ${theme === name ? "active" : ""}`}
+                onClick={() => setTheme(name)}
+              >
+                {icon}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-
 
       {/* Sidebar */}
       <div className="sidebar">
@@ -144,7 +159,7 @@ function App() {
               placeholder="Untitled"
               className="page-title"
             />
-            
+
             {currentPage?.updatedAt && (
               <p style={{ fontSize: "14px", color: "gray" }}>
                 Last edited: {new Date(currentPage.updatedAt).toLocaleString()}

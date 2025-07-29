@@ -234,6 +234,74 @@ button:hover {
   background: var(--progress-fill);
 }
 
+.theme-toggle-hover-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle-hover-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-current {
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-options-hover {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 40px;
+  background-color: var(--toggle-bg);
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  gap: 8px;
+  flex-direction: row;
+  white-space: nowrap;
+  border: 1px solid var(--toggle-border);
+}
+
+.theme-toggle-hover-area:hover .theme-toggle-current {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-toggle-hover-area:hover .theme-options-hover {
+  display: flex;
+}
+
+.theme-options-hover .theme-btn {
+  font-size: 20px;
+  padding: 6px 10px;
+  border: none;
+  background-color: var(--theme-hover-bg);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-options-hover .theme-btn.active {
+  background-color: var(--theme-active-bg);
+}
+
+.theme-options-hover .theme-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
 .light {
   --progress-bg: #ddd;
   --progress-fill: #4caf50;
