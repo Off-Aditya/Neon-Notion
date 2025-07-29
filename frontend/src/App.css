@@ -305,6 +305,8 @@ button:hover {
 .light {
   --progress-bg: #ddd;
   --progress-fill: #4caf50;
+  --scroll-track: #f0f0f0;
+  --scroll-thumb: #b0b0b0;
 }
 
 /* Github Dark Theme */
@@ -313,6 +315,8 @@ button:hover {
   color: #c9d1d9;
   --progress-bg: #444;
   --progress-fill: #81c784;
+  --scroll-track: #1e1e1e;
+  --scroll-thumb: #444;
 }
 
 .dark .sidebar {
@@ -400,6 +404,8 @@ button:hover {
   transition: all 0.3s ease;
   --progress-bg: #f9d5e5;
   --progress-fill: #e91e63;
+  --scroll-track: #fff0f4;
+  --scroll-thumb: #ff80aa;
 }
 
 .sakura .sidebar {
@@ -448,6 +454,8 @@ button:hover {
   font-family: 'Courier New', monospace;
   --progress-bg: #222;
   --progress-fill: #0f0;
+  --scroll-track: #1b1b1b;
+  --scroll-thumb: #ffd700;
 }
 
 .retro .sidebar {
@@ -533,6 +541,8 @@ button:hover {
   color: #586e75;
   --progress-bg: #eee8d5;
   --progress-fill: #ceb62b;
+  --scroll-track: #eee8d5;
+  --scroll-thumb: #b58900;
 }
 
 .solarized .sidebar {
@@ -582,6 +592,8 @@ button:hover {
   font-family: 'Segoe UI', sans-serif;
   --progress-bg: #2b2d3a;
   --progress-fill: #b861ff;
+  --scroll-track: #1a1b26;
+  --scroll-thumb: #7aa2f7;
 }
 
 .tokyo .sidebar {
@@ -661,6 +673,36 @@ button:hover {
   display: inline-block;
   margin: 2px;
 }
+
+.sidebar,
+.editor {
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+.sidebar::-webkit-scrollbar,
+.editor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.editor::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.editor::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.editor::-webkit-scrollbar-thumb:hover {
+  background-color: var(--theme-active-bg);
+}
+
 
 .task-text-container {
   position: relative;
